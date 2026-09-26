@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>حجز استشارات VIP | أكاديمية دنيا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0D1424; --bg-2:#101a30; --panel:#161f38; --panel-2:#131b33; --line:#2b3559;
+    --red:#a51f3c; --red-dark:#7c1730; --gold:#e5b53c; --gold-dark:#b8891f;
+    --text:#f3efe4; --text-muted:#a7afc9;
+    font-family:'Almarai','Segoe UI',Tahoma,sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--text); line-height:1.6; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); overflow-x:hidden;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 20px;}
+
+  .hero{
+    position:relative; padding:48px 0 40px;
+    background:radial-gradient(1200px 400px at 50% -10%, rgba(165,31,60,.35), transparent 60%), linear-gradient(180deg, var(--bg-2), var(--bg));
+    border-bottom:1px solid var(--line); text-align:center;
+  }
+  .brandmark{display:inline-flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .brandmark svg{width:34px; height:34px; flex-shrink:0;}
+  .brand-name{font-weight:800; font-size:22px; letter-spacing:.5px;}
+  .brand-sub{font-size:11px; color:var(--text-muted); letter-spacing:2px; margin-top:-4px;}
+  .coach-tag{display:inline-block; margin-top:14px; font-size:13px; color:var(--gold); border:1px solid var(--gold-dark); border-radius:999px; padding:4px 14px;}
+  .hero h1{margin-top:22px; font-size:clamp(28px,5vw,44px); font-weight:800; line-height:1.25;}
+  .hero h1 span{color:var(--gold);}
+  .hero p{margin-top:10px; color:var(--text-muted); font-size:16px; max-width:520px; margin-inline:auto;}
+  .hero-cta{margin-top:26px; display:inline-flex; gap:12px; flex-wrap:wrap; justify-content:center;}
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:inherit; font-weight:700; font-size:15px; padding:12px 22px; border-radius:10px; border:1px solid transparent; cursor:pointer; text-decoration:none; transition:transform .15s ease, filter .15s ease;}
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--red); color:#fff;}
+  .btn-primary:hover{filter:brightness(1.1);}
+  .btn-ghost{background:transparent; color:var(--text); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--gold);}
+
+  section{padding:52px 0;}
+  .section-head{margin-bottom:30px; text-align:center;}
+  .section-head h2{font-size:clamp(22px,3.4vw,30px); font-weight:800;}
+  .section-head p{color:var(--text-muted); margin-top:8px; font-size:15px;}
+
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .step{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 16px; position:relative;}
+  .step .num{width:30px; height:30px; border-radius:50%; background:var(--red); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px; margin-bottom:12px;}
+  .step h3{font-size:15px; font-weight:700; margin-bottom:6px;}
+  .step p{font-size:13.5px; color:var(--text-muted);}
+
+  .schedule-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:16px; overflow:hidden; position:relative;}
+  .card-top{padding:16px 18px 20px; position:relative;}
+  .card-date{font-size:13px; color:var(--text-muted); margin-bottom:8px;}
+  .day-pin{position:absolute; top:14px; left:16px; background:var(--gold); color:#241a03; font-weight:800; font-size:12px; padding:5px 12px; border-radius:3px; transform:rotate(-3deg); box-shadow:0 3px 6px rgba(0,0,0,.35);}
+  .topic-banner{background:linear-gradient(135deg, var(--red), var(--red-dark)); color:#fff; font-weight:700; font-size:15px; text-align:center; padding:12px 40px 12px 14px; border-radius:8px; margin-top:26px; line-height:1.4;}
+  .perforation{position:relative; height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px); margin:0 18px;}
+  .perforation::before, .perforation::after{content:''; position:absolute; top:-9px; width:18px; height:18px; border-radius:50%; background:var(--bg);}
+  .perforation::before{right:-27px;}
+  .perforation::after{left:-27px;}
+  .slots{padding:16px 18px 18px; display:flex; flex-direction:column; gap:9px;}
+  .slot-btn{display:flex; align-items:center; justify-content:space-between; background:var(--panel-2); border:1px solid var(--line); border-radius:9px; padding:10px 14px; color:var(--text); font-family:inherit; font-size:14.5px; font-weight:700; cursor:pointer; width:100%; text-align:right; text-decoration:none;}
+  .slot-btn:hover{border-color:var(--gold); color:var(--gold);}
+  .slot-btn .arrow{font-size:12.5px; color:var(--text-muted);}
+
+  .note{margin-top:16px; font-size:13px; color:var(--text-muted); background:var(--panel-2); border-radius:10px; padding:12px 14px; border-inline-start:3px solid var(--gold); max-width:640px; margin-inline:auto;}
+
+  footer{border-top:1px solid var(--line); padding:34px 0 calc(34px + env(safe-area-inset-bottom,0px)); text-align:center; color:var(--text-muted); font-size:13.5px;}
+  .footer-phone{display:inline-flex; align-items:center; gap:8px; color:var(--text); font-weight:700; font-size:16px; margin-bottom:6px; direction:ltr;}
+  .footer-loc{max-width:420px; margin:14px auto 0;}
+
+  @media (max-width:680px){
+    .steps{grid-template-columns:1fr 1fr;}
+    .schedule-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="brandmark">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4c6 5 9 8 20 9-5 2-8 3-11 7 3 1 6 1 9 0-4 5-9 7-16 7-2 5-2 10 1 17-5-3-8-7-9-12-1 5-4 9-9 12 3-7 3-12 1-17-7 0-12-2-16-7 3 1 6 1 9 0-3-4-6-5-11-7 11-1 14-4 20-9 4-2 8-2 12 0z" fill="var(--gold)"/>
+      </svg>
+      <div>
+        <div class="brand-name">أكاديميّة دنيا</div>
+        <div class="brand-sub">DOUNIA ACADEMY</div>
+      </div>
+    </div>
+    <div><span class="coach-tag">@Coach Dounia</span></div>
+    <h1>مواعيد استشارات <span>البرامج VIP</span></h1>
+    <p>اختاري الموضوع والموعد المناسب لك، وخصصي وقتك مباشرة مع الكوتش دنيا — حضورياً بمقر الأكاديمية أو أونلاين.</p>
+    <div class="hero-cta">
+      <a href="#schedule" class="btn btn-primary">شوفي المواعيد المتاحة</a>
+      <a href="#how" class="btn btn-ghost">طريقة الحجز</a>
+    </div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>كيف تحجزين موعدك؟</h2>
+      <p>4 خطوات بسيطة لتأكيد استشارتك</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h3>اختاري الموعد</h3>
+        <p>دوسي على الوقت المناسب من الجدول تحت.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h3>سجلي معلوماتك</h3>
+        <p>يفتحلك تقويم الحجز، عبّي اسمك، هاتفك، ولايتك ووضعيتك (نفس معلومات استمارة التسجيل).</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h3>أكّدي الحجز</h3>
+        <p>بعد التعبئة، يتثبت موعدك مباشرة على التقويم بدون انتظار.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>استلمي التأكيد</h3>
+        <p>توصلك رسالة فيها كل تفاصيل جلستك.</p>
+      </div>
+    </div>
+    <div class="note">💳 الدفع يتم عند الجلسة — ميزة حصرية بأكاديميتنا، بدون أي دفع مسبق.</div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>جدول الاستشارات — أكتوبر 2026</h2>
+      <p>كل استشارة مدتها ساعة</p>
+    </div>
+    <div class="schedule-grid" id="scheduleGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="footer-phone" href="https://wa.me/213793163561" target="_blank" rel="noopener">📞 +213 7 93 16 35 61</a>
+    <div>تواصلي معنا على واتساب لأي استفسار</div>
+    <div class="footer-loc">متوفرة حضورياً بمقر الأكاديمية، وأيضاً أونلاين</div>
+  </div>
+</footer>
+
+<script>
+  const CAL_USERNAME = "dounia1academy";
+
+  const sessions = [
+    { date:"08 أكتوبر 2026", iso:"2026-10-08", day:"الأحد", topic:"كيف ابيع دوراتي؟", slug:"كيف-ابيع-دوراتي", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً"] },
+    { date:"11 أكتوبر 2026", iso:"2026-10-11", day:"الأحد", topic:"كيف ابيع دوراتي؟", slug:"كيف-ابيع-دوراتي", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً"] },
+    { date:"12 أكتوبر 2026", iso:"2026-10-12", day:"الاثنين", topic:"كيف اطلق مشروعي اون لاين؟", slug:"كيف-اطلق-مشروعي-اون-لاين", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً"] },
+    { date:"14 أكتوبر 2026", iso:"2026-10-14", day:"الاثنين", topic:"كيف اطلق مشروعي اون لاين؟", slug:"كيف-اطلق-مشروعي-اون-لاين", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً","2:30 مساءً"] },
+    { date:"15 أكتوبر 2026", iso:"2026-10-15", day:"الأحد", topic:"تحدي العروس", slug:"تحدي-العروس", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً"] },
+    { date:"22 أكتوبر 2026", iso:"2026-10-22", day:"الاثنين", topic:"برنامج تحليل شيفرة الشخصيات", slug:"برنامج-تحليل-شيفرة-الشخصيات", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً"] },
+    { date:"28 أكتوبر 2026", iso:"2026-10-28", day:"الثلاثاء", topic:"كيف اعالج نفسي؟", slug:"كيف-اعالج-نفسي", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً"] },
+    { date:"29 أكتوبر 2026", iso:"2026-10-29", day:"الأربعاء", topic:"الاستشارات", slug:"الاستشارات", slots:["9:00 صباحاً","10:00 صباحاً","11:00 صباحاً"] }
+  ];
+
+  const grid = document.getElementById('scheduleGrid');
+
+  sessions.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const top = document.createElement('div');
+    top.className = 'card-top';
+    top.innerHTML = `
+      <div class="day-pin">${s.day}</div>
+      <div class="card-date">${s.date}</div>
+      <div class="topic-banner">${s.topic}</div>
+    `;
+    card.appendChild(top);
+
+    const perf = document.createElement('div');
+    perf.className = 'perforation';
+    card.appendChild(perf);
+
+    const slotsWrap = document.createElement('div');
+    slotsWrap.className = 'slots';
+
+    s.slots.forEach(time => {
+      const a = document.createElement('a');
+      a.className = 'slot-btn';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.href = `https://cal.com/${CAL_USERNAME}/${encodeURIComponent(s.slug)}?date=${s.iso}`;
+      a.innerHTML = `<span>${time}</span><span class="arrow">سجلي واحجزي ←</span>`;
+      slotsWrap.appendChild(a);
+    });
+
+    card.appendChild(slotsWrap);
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
